@@ -15,6 +15,7 @@ base = pin13
 servos = [right, left, base, gripper]
 for servo in servos:
     servo.set_analog_period_microseconds(20000)
+    servo.write_analog(76)
 
 # initialize serial communication (UART over USB)
 uart.init(baudrate=115200)
@@ -73,7 +74,7 @@ def updateServos():
     """
     global servoValues, servos
     for i in range(4):
-        servoValues[i] = clampForServo(servoValues[i])
+        # servoValues[i] = clampForServo(servoValues[i])
         servos[i].write_analog(servoValues[i])
 
 
@@ -82,4 +83,4 @@ while True:
         if(parseInputStr()):
             if(len(servoValues) == 4):
                 updateServos()
-                print(servoValues)
+                #print(servoValues)
