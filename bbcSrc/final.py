@@ -36,6 +36,8 @@ def parseInputStr():
     The string input should be comma separated and starting with `s` and ending with `e`
     It is not being checked that it is comma separated but it should be.
 
+    example of string: "s19,80,60,110e"
+
     Returns True if this sequence of string is complete. Otherwise False
     """
     global inStr
@@ -77,7 +79,7 @@ def updateServos():
         # servoValues[i] = clampForServo(servoValues[i])
         servos[i].write_analog(servoValues[i])
 
-
+# Main Loop
 while True:
     if (uart.any()):
         if(parseInputStr()):

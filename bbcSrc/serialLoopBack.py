@@ -12,5 +12,5 @@ uart.init(baudrate=115200)
 
 while True:
     if (uart.any()):
-    	input = uart.read()
-    	uart.write(input)
+        input = uart.read()
+        uart.write(input)
